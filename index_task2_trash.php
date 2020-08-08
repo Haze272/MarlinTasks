@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task2</title>
     
     <meta name="description" content="Chartist.html">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,7 +51,7 @@
                             ];
 
                             foreach($array as $value)
-                                
+                                echo $value;
 
                             ?>
 

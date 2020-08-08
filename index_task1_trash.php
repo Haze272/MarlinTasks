@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>
-            Подготовительные задания к курсу
-        </title>
-        <meta name="description" content="Chartist.html">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
-        <link id="vendorsbundle" rel="stylesheet" media="screen, print" href="css/vendors.bundle.css">
-        <link id="appbundle" rel="stylesheet" media="screen, print" href="css/app.bundle.css">
-        <link id="myskin" rel="stylesheet" media="screen, print" href="css/skins/skin-master.css">
-        <link rel="stylesheet" media="screen, print" href="css/statistics/chartist/chartist.css">
-        <link rel="stylesheet" media="screen, print" href="css/miscellaneous/lightgallery/lightgallery.bundle.css">
-        <link rel="stylesheet" media="screen, print" href="css/fa-solid.css">
-        <link rel="stylesheet" media="screen, print" href="css/fa-brands.css">
-        <link rel="stylesheet" media="screen, print" href="css/fa-regular.css">
-    </head>
-    <body class="mod-bg-1 mod-nav-link ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+    <link id="vendorsbundle" rel="stylesheet" media="screen, print" href="css/vendors.bundle.css">
+    <link id="appbundle" rel="stylesheet" media="screen, print" href="css/app.bundle.css">
+    <link id="myskin" rel="stylesheet" media="screen, print" href="css/skins/skin-master.css">
+    <link rel="stylesheet" media="screen, print" href="css/statistics/chartist/chartist.css">
+    <link rel="stylesheet" media="screen, print" href="css/miscellaneous/lightgallery/lightgallery.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="css/fa-solid.css">
+    <link rel="stylesheet" media="screen, print" href="css/fa-brands.css">
+    <link rel="stylesheet" media="screen, print" href="css/fa-regular.css">
+</head>
+<body class="mod-bg-1 mod-nav-link ">
         <main id="js-page-content" role="main" class="page-content">
 
             <div class="col-md-6">
@@ -43,37 +42,25 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
-                                        $array = [
-                                            [
-                                                'attribute' => 'reports file',
-                                                'title' => 'Reports'
-                                            ],
-                                            [
-                                                'attribute' => 'analytics graphs',
-                                                'title' => 'Analytics'
-                                            ],
-                                            [
-                                                'attribute' => 'export download',
-                                                'title' => 'Export'
-                                            ],
-                                            [
-                                                'attribute' => 'storage',
-                                                'title' => 'Storage'
-                                            ]
-                                        ];
-                                    ?>
-
                                     <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
-                                        <?php foreach($array as $key => $value) ?>
-                                            <li class="list-group-item">
-                                                <span data-filter-tags="<?php echo $value['attribute'] ?>"><?php echo $value['title'] ?></span>
-                                            </li>
-                                        <?php endforeach; ?>
-                                        
-                                        
+                                        <?php 
+
+                                        $array = [
+                                        0 => "Reports",
+                                        1 => "Analytics",
+                                        2 => "Export",
+                                        3 => "Storage",
+                                        ];
+
+                                        foreach($array as $value)
+                                            echo "<li class=\"list-group-item\"><span data-filter-tags=\"reports file\">{$value}</span></li>";
+
+    
+
+                                        ?>
                                     </ul>
-                                    <!--
+                                    <!--- 
+                                    
                                     <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
                                         <li class="list-group-item">
                                             <span data-filter-tags="reports file">Reports</span>
@@ -87,7 +74,8 @@
                                         <li class="list-group-item">
                                             <span data-filter-tags="storage">Storage</span>
                                         </li>
-                                    </ul>
+                                    </ul> 
+
                                     -->
                                     <div class="filter-message js-filter-message mt-0 fs-sm"></div>
                                 </div>
