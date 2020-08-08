@@ -65,13 +65,11 @@
                                     ?>
 
                                     <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
-                                        <?php foreach($array as $key => $value) ?>
+                                        <?php foreach($array as $key => $value): ?>
                                             <li class="list-group-item">
                                                 <span data-filter-tags="<?php echo $value['attribute'] ?>"><?php echo $value['title'] ?></span>
                                             </li>
                                         <?php endforeach; ?>
-                                        
-                                        
                                     </ul>
                                     <!--
                                     <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
