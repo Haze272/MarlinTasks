@@ -32,19 +32,34 @@
                     </div>
                     <div class="panel-container show">
                         <div class="panel-content">
-                            <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
-                            <h2>Privacy</h2>
-                            <p class="mb-g">
-                                Your privacy is important to us at SmartAdmin and the protection, confidentiality and integrity of your personal data are our prime concerns.
-                                We will only use your personal information to administer your account, provide the products and services you have requested from us, and to keep you informed about our products and services (if you have consented to this).
-                                We only use your data for the purposes for which it was collected and, where relevant, to meet local legal obligations.
-                                We will retain your personal information only for as long as is necessary for the purposes for which the information was collected, or as long as is required pursuant to law.
-                            </p>
-                            <h3>Cookies and other similar technologies</h3>
-                            <p>
-                                We collect certain data through cookies and similar technologies (e.g. web beacons, tags, device identifiers). Cookies are text files placed on your computer to collect standard internet log information and visitor behaviour information. This information is used to track visitor use of the website and to compile statistical reports on website activity. We register your interaction with our services in order to improve our website, content and services. Our use of such technologies and the data collected is described in more detail in our Cookie Policy. You can manage your cookie preferences through your browser settings.
-                            </p>
-                        </div>
+                            <ol class="breadcrumb page-breadcrumb">
+                                <?php 
+                                $array = [
+                                    [
+                                        'content' => 'Главная',
+                                        'href' => '#',
+                                        'islink' => true
+                                    ],
+                                    [
+                                        'content' => 'PHP',
+                                        'href' => '#',
+                                        'islink' => true
+                                    ],
+                                    [
+                                        'content' => 'Функции',
+                                        'href' => '',
+                                        'islink' => false
+                                    ]
+                                ];
+                                ?>
+                                <?php foreach($array as $key => $value): ?>
+                                    <?php if($value['islink'] == true): ?>
+                                        <li class="breadcrumb-item"><a href="<?php echo $value['href']; ?>"><?php echo $value['content']; ?></a></li>
+                                    <?php else: ?>
+                                        <li class="breadcrumb-item active"><?php echo $value['content']; ?></li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </ol>
                         </div>
                     </div>
                 </div>
