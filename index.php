@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="utf-8">
         <title>
             Подготовительные задания к курсу
@@ -19,7 +19,6 @@
     </head>
     <body class="mod-bg-1 mod-nav-link ">
         <main id="js-page-content" role="main" class="page-content">
-
             <div class="col-md-6">
                 <div id="panel-1" class="panel">
                     <div class="panel-hdr">
@@ -33,63 +32,19 @@
                     </div>
                     <div class="panel-container show">
                         <div class="panel-content">
-                            <div class="panel-content">
-                                <div class="bg-warning-100 border border-warning rounded">
-                                    <div class="input-group p-2 mb-0">
-                                        <input type="text" class="form-control form-control-lg shadow-inset-2 bg-warning-50 border-warning" id="js-list-msg-filter" placeholder="Filter list">
-                                        <div class="input-group-append">
-                                            <div class="input-group-text bg-warning-500 border-warning">
-                                                <i class="fal fa-search fs-xl"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php
-                                        $array = [
-                                            [
-                                                'attribute' => 'reports file',
-                                                'title' => 'Reports'
-                                            ],
-                                            [
-                                                'attribute' => 'analytics graphs',
-                                                'title' => 'Analytics'
-                                            ],
-                                            [
-                                                'attribute' => 'export download',
-                                                'title' => 'Export'
-                                            ],
-                                            [
-                                                'attribute' => 'storage',
-                                                'title' => 'Storage'
-                                            ]
-                                        ];
-                                    ?>
-
-                                    <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
-                                        <?php foreach($array as $key => $value): ?>
-                                            <li class="list-group-item">
-                                                <span data-filter-tags="<?php echo $value['attribute'] ?>"><?php echo $value['title'] ?></span>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                    <!--
-                                    <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
-                                        <li class="list-group-item">
-                                            <span data-filter-tags="reports file">Reports</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span data-filter-tags="analytics graphs">Analytics</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span data-filter-tags="export download">Export</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span data-filter-tags="storage">Storage</span>
-                                        </li>
-                                    </ul>
-                                    -->
-                                    <div class="filter-message js-filter-message mt-0 fs-sm"></div>
-                                </div>
-                            </div>
+                            <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
+                            <h2>Privacy</h2>
+                            <p class="mb-g">
+                                Your privacy is important to us at SmartAdmin and the protection, confidentiality and integrity of your personal data are our prime concerns.
+                                We will only use your personal information to administer your account, provide the products and services you have requested from us, and to keep you informed about our products and services (if you have consented to this).
+                                We only use your data for the purposes for which it was collected and, where relevant, to meet local legal obligations.
+                                We will retain your personal information only for as long as is necessary for the purposes for which the information was collected, or as long as is required pursuant to law.
+                            </p>
+                            <h3>Cookies and other similar technologies</h3>
+                            <p>
+                                We collect certain data through cookies and similar technologies (e.g. web beacons, tags, device identifiers). Cookies are text files placed on your computer to collect standard internet log information and visitor behaviour information. This information is used to track visitor use of the website and to compile statistical reports on website activity. We register your interaction with our services in order to improve our website, content and services. Our use of such technologies and the data collected is described in more detail in our Cookie Policy. You can manage your cookie preferences through your browser settings.
+                            </p>
+                        </div>
                         </div>
                     </div>
                 </div>
