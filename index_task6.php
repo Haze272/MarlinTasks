@@ -31,9 +31,6 @@
                         </div>
                     </div>
                     <?php
-                    $user = admin;
-                    $pass = root;
-                    $DBH = new PDO("mysql:host=$host;dbname=task7", $user, $pass);
 
                     $array = [
                         [
