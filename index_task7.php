@@ -31,8 +31,9 @@
                         </div>
                     </div>
                     <?php
-
+                    
                     /*
+                    error_reporting(E_ALL);
 
                     $driver = 'mysql';
                     $host =  'localhost';
@@ -46,6 +47,7 @@
                     */
 
 
+                    /*
                     $host = 'localhost';
                     $db   = 'marlintask';
                     $user = 'root';
@@ -59,6 +61,7 @@
                         PDO::ATTR_EMULATE_PREPARES   => false,
                     ];
                     $pdo = new PDO($dsn, $user, $pass, $opt);    
+                    */
 
                     ?>
                     <div class="panel-container show">
@@ -67,14 +70,41 @@
 
 
                             <?php
+
+                            $pdo = new PDO("mysql:host=localhost;dbname=marlintask", "root", "root");
+                            $sql = "SELECT * FROM staff_data";
+                            $stmt = $pdo->prepare($sql);
+                            $stmt->execute();
+                            var_dump($stmt->fetchALL(PDO::FETCH_ASSOC));die;
+                            
+
+
+
+                            /* Это работает не до конца
+
+                            function user() {
+                                global $pdo;
+                                $stmt = $pdo->query('SELECT justName FROM staff_data WHERE id = 2');
+                                $data = $stmt->fetchAll();
+                                return $data;
+                               }
+                               $datas = user();
+                               var_dump($datas);
+
+                            */
+
+                            /*
+
                             $stmt = $pdo->prepare('SELECT justName FROM staff_data WHERE id = 2');
-                            /* $stmt->execute([$_GET['id']]); */
+                            $stmt->execute([$_GET['id']]);
                             while ($row = $stmt->fetch(PDO::FETCH_LAZY))
                             {
                                 echo $row[0] . "\n";
                                 echo $row['justName'] . "\n";
                                 echo $row->justName . "\n";
-                            };      
+                            };   
+
+                            */
                             ?>
 
                             
