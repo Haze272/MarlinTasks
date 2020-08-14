@@ -30,46 +30,40 @@
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
                         </div>
                     </div>
+                    <?php
+
+                    require_once('db_connection.php');
+
+                    $sql = "SELECT * FROM staff_data";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    $staff_data = $stmt->fetchALL(PDO::FETCH_ASSOC);
+                    
+                    ?>
                     <div class="panel-container show">
                         <div class="panel-content">
-                            <h5 class="frame-heading">
-                                Обычная таблица
-                            </h5>
-                            <?php
-                            require_once('db_connection.php');
-
-                            $sql = "SELECT * FROM users";
-                            $stmt = $pdo->prepare($sql);
-                            $stmt->execute();
-                            $users = $stmt->fetchALL(PDO::FETCH_ASSOC);
-                            ?>
-                            <div class="frame-wrap">
-                                <table class="table m-0">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <?php foreach($users as $key => $value): ?>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row"><?php echo $value['id']; ?></th>
-                                            <td><?php echo $value['name']; ?></td>
-                                            <td><?php echo $value['surname']; ?></td>
-                                            <td><?php echo $value['username']; ?></td>
-                                            <td>
-                                                <a href="show.php?id=<?php echo $value['id']; ?>" class="btn btn-info">Редактировать</a>
-                                                <a href="edit.php?id=<?php echo $value['id']; ?>" class="btn btn-warning">Изменить</a>
-                                                <a href="delete.php?id=<?php echo $value['id']; ?>" class="btn btn-danger">Удалить</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <?php endforeach; ?>
-                                </table>
+                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
+                            <?php $i = 0; ?>
+                            <?php foreach($array as $key => $value): ?>
+                                <?php if($i >= 2): ?>
+                                    <div class="banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                                <?php else: ?>    
+                                    <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                                <?php endif; ?> 
+                                <?php $i++; ?>       
+                                        <img src="<?php echo $value['img']; ?>" alt="<?php echo $value['alt']; ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;"> 
+                                        <div class="ml-2 mr-3">
+                                            <h5 class="m-0">
+                                                <?php echo $value['name']; ?>
+                                                <small class="m-0 fw-300">
+                                                    <?php echo $value['post']; ?>
+                                                </small>
+                                            </h5>
+                                            <a href="<?php echo $value['hrefTwitter']; ?>" class="text-info fs-sm" target="_blank"><?php echo $value['twitterName']; ?></a> -
+                                            <a href="<?php echo $value['hrefBoostrap']; ?>" class="text-info fs-sm" target="_blank" title="Contact <?php echo $value['justName']; ?>"><i class="fal fa-envelope"></i></a>
+                                        </div>
+                                    </div>
+                            <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
