@@ -19,6 +19,7 @@
     </head>
     <body class="mod-bg-1 mod-nav-link ">
         <main id="js-page-content" role="main" class="page-content">
+
             <div class="col-md-6">
                 <div id="panel-1" class="panel">
                     <div class="panel-hdr">
@@ -32,44 +33,14 @@
                     </div>
                     <div class="panel-container show">
                         <div class="panel-content">
-                            <h5 class="frame-heading">
-                                Обычная таблица
-                            </h5>
-                            <?php
-                            require_once('db_connection.php');
-
-                            $sql = "SELECT * FROM users";
-                            $stmt = $pdo->prepare($sql);
-                            $stmt->execute();
-                            $users = $stmt->fetchALL(PDO::FETCH_ASSOC);
-                            ?>
-                            <div class="frame-wrap">
-                                <table class="table m-0">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <?php foreach($users as $key => $value): ?>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row"><?php echo $value['id']; ?></th>
-                                            <td><?php echo $value['name']; ?></td>
-                                            <td><?php echo $value['surname']; ?></td>
-                                            <td><?php echo $value['username']; ?></td>
-                                            <td>
-                                                <a href="show.php?id=<?php echo $value['id']; ?>" class="btn btn-info">Редактировать</a>
-                                                <a href="edit.php?id=<?php echo $value['id']; ?>" class="btn btn-warning">Изменить</a>
-                                                <a href="delete.php?id=<?php echo $value['id']; ?>" class="btn btn-danger">Удалить</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <?php endforeach; ?>
-                                </table>
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <form action="search.php" method="post">
+                                        <label class="form-label" for="simpleinput">Text</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="text">
+                                        <button class="btn btn-success mt-3" type="submit">Submit</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

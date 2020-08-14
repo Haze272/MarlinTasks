@@ -44,7 +44,7 @@
                         <div class="panel-content">
                             <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
                             <?php $i = 0; ?>
-                            <?php foreach($array as $key => $value): ?>
+                            <?php foreach($array as $value): ?>
                                 <?php if($i >= 2): ?>
                                     <div class="banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
                                 <?php else: ?>    
