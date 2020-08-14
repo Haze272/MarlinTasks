@@ -31,83 +31,39 @@
                         </div>
                     </div>
                     <?php
+
+                    require_once('db_connection.php');
+
+                    $sql = "SELECT * FROM staff_data";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    $staff_data = $stmt->fetchALL(PDO::FETCH_ASSOC);
                     
-                    /*
-                    error_reporting(E_ALL);
-
-                    $driver = 'mysql';
-                    $host =  'localhost';
-                    $db_name = 'marlintask';
-                    $db_user = 'root';
-                    $db_pass = 'root';
-                    
-                    $dbase = "$driver:host=$host;dbname=$db_name";
-                    $pdo = new PDO($dbase, $db_user, $db_pass);
-
-                    */
-
-
-                    /*
-                    $host = 'localhost';
-                    $db   = 'marlintask';
-                    $user = 'root';
-                    $pass = 'root';
-                    $charset = 'utf8';
-
-                    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-                    $opt = [
-                        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                        PDO::ATTR_EMULATE_PREPARES   => false,
-                    ];
-                    $pdo = new PDO($dsn, $user, $pass, $opt);    
-                    */
-
                     ?>
                     <div class="panel-container show">
                         <div class="panel-content">
                             <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
-
-
-                            <?php
-
-                            $pdo = new PDO("mysql:host=localhost;dbname=marlintask", "root", "root");
-                            $sql = "SELECT * FROM staff_data";
-                            $stmt = $pdo->prepare($sql);
-                            $stmt->execute();
-                            var_dump($stmt->fetchALL(PDO::FETCH_ASSOC));die;
-                            
-
-
-
-                            /* Это работает не до конца
-
-                            function user() {
-                                global $pdo;
-                                $stmt = $pdo->query('SELECT justName FROM staff_data WHERE id = 2');
-                                $data = $stmt->fetchAll();
-                                return $data;
-                               }
-                               $datas = user();
-                               var_dump($datas);
-
-                            */
-
-                            /*
-
-                            $stmt = $pdo->prepare('SELECT justName FROM staff_data WHERE id = 2');
-                            $stmt->execute([$_GET['id']]);
-                            while ($row = $stmt->fetch(PDO::FETCH_LAZY))
-                            {
-                                echo $row[0] . "\n";
-                                echo $row['justName'] . "\n";
-                                echo $row->justName . "\n";
-                            };   
-
-                            */
-                            ?>
-
-                            
+                            <?php $i = 0; ?>
+                            <?php foreach($array as $key => $value): ?>
+                                <?php if($i >= 2): ?>
+                                    <div class="banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                                <?php else: ?>    
+                                    <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                                <?php endif; ?> 
+                                <?php $i++; ?>       
+                                        <img src="<?php echo $value['img']; ?>" alt="<?php echo $value['alt']; ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;"> 
+                                        <div class="ml-2 mr-3">
+                                            <h5 class="m-0">
+                                                <?php echo $value['name']; ?>
+                                                <small class="m-0 fw-300">
+                                                    <?php echo $value['post']; ?>
+                                                </small>
+                                            </h5>
+                                            <a href="<?php echo $value['hrefTwitter']; ?>" class="text-info fs-sm" target="_blank"><?php echo $value['twitterName']; ?></a> -
+                                            <a href="<?php echo $value['hrefBoostrap']; ?>" class="text-info fs-sm" target="_blank" title="Contact <?php echo $value['justName']; ?>"><i class="fal fa-envelope"></i></a>
+                                        </div>
+                                    </div>
+                            <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
