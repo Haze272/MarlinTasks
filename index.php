@@ -1,3 +1,7 @@
+<?php
+session_start();
+var_dump($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,9 +39,16 @@
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
-                                    <form action="search.php" method="post">
+                                    <?php if(isset($_SESSION['message'])): ?>
+                                    <div class="alert alert-danger fade show" role="alert">
+                                        <?php echo $_SESSION['message'];
+                                            unset($_SESSION['message']);
+                                        ?>
+                                    </div>
+                                    <?php endif; ?>
+                                    <form action="search_task10.php" method="post">
                                         <label class="form-label" for="simpleinput">Text</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="text">
+                                        <input type="text" id="simpleinput" class="form-control" name="query">
                                         <button class="btn btn-success mt-3" type="submit">Submit</button>
                                     </form>
                                 </div>
